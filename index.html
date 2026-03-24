@@ -1,1 +1,30 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تطبيق تصميم الصور</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container" id="welcomeScreen">
+        <h1 class="app-title">المصمم الاحترافي</h1>
+        <p class="app-subtitle">أضف لمستك الخاصة</p>
+        <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+        <button class="upload-btn" onclick="document.getElementById('imageUpload').click()">اختر صورة للبدء</button>
+    </div>
 
+    <div class="editor-container" id="editorScreen" style="display: none;">
+        <div class="toolbar">
+            <button class="tool-btn" id="addTextBtn">إضافة نص</button>
+            <button class="tool-btn" id="exportBtn">حفظ 4K</button>
+        </div>
+        
+        <div class="canvas-wrapper">
+            <canvas id="mainCanvas"></canvas>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
