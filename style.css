@@ -1,54 +1,36 @@
-/* ... (نفس كود التدرجات والألوان السابق يبقى هنا) ... */
-
-/* تنسيق شاشة التحرير */
-.editor-container {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background-color: #0f172a;
-}
-
-/* شريط الأدوات (فوق) */
-.toolbar {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    padding: 15px;
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    z-index: 10;
-}
-
-.tool-btn {
-    background: #3b82f6;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.2s;
-}
-
-.tool-btn:hover {
-    background: #4f46e5;
-}
-
-/* مساحة الكانفاس (النص والمركز) */
-.canvas-wrapper {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; /* حتى لو الصورة كبيرة ما تخرب الواجهة */
+.bottom-controls {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding: 20px;
+    border-radius: 30px 30px 0 0;
 }
 
-canvas {
-    max-width: 100%;
-    max-height: 100%;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-    border-radius: 8px;
+.control-panel {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.control-panel.active { display: flex; }
+
+.row, .alignment-row {
+    display: flex;
+    gap: 10px;
+    justify-content: space-around;
+}
+
+.nudge-controls button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #1e293b;
+    color: #818cf8;
+    border: 1px solid #4f46e5;
+}
+
+/* زر الحفظ 4K الفخم */
+#exportBtn {
+    background: linear-gradient(45deg, #f59e0b, #ef4444);
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
 }
