@@ -1,30 +1,31 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تطبيق تصميم الصور</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="app-container" id="welcomeScreen">
-        <h1 class="app-title">المصمم الاحترافي</h1>
-        <p class="app-subtitle">أضف لمستك الخاصة</p>
-        <input type="file" id="imageUpload" accept="image/*" style="display: none;">
-        <button class="upload-btn" onclick="document.getElementById('imageUpload').click()">اختر صورة للبدء</button>
+<div class="bottom-controls">
+    <div class="tool-tabs">
+        <button onclick="showPanel('textPanel')">النص</button>
+        <button onclick="showPanel('colorPanel')">الألوان</button>
+        <button onclick="showPanel('sizePanel')">القياسات</button>
     </div>
 
-    <div class="editor-container" id="editorScreen" style="display: none;">
-        <div class="toolbar">
-            <button class="tool-btn" id="addTextBtn">إضافة نص</button>
-            <button class="tool-btn" id="exportBtn">حفظ 4K</button>
+    <div id="textPanel" class="control-panel active">
+        <div class="row">
+            <button onclick="addText()">+ إضافة نص جديد</button>
+            <input type="file" id="fontInput" accept=".ttf,.otf" style="display:none" onchange="loadCustomFont(this)">
+            <button onclick="document.getElementById('fontInput').click()">رفع خط خاص</button>
         </div>
         
-        <div class="canvas-wrapper">
-            <canvas id="mainCanvas"></canvas>
+        <div class="alignment-row">
+            <button onclick="alignText('left')">يسار</button>
+            <button onclick="alignText('center')">وسط</button>
+            <button onclick="alignText('right')">يمين</button>
+            <button onclick="applyKashida()">كشيدة</button>
+        </div>
+
+        <div class="nudge-controls">
+            <span>تحريك دقيق:</span>
+            <button onclick="moveText(0, -1)">↑</button>
+            <button onclick="moveText(0, 1)">↓</button>
+            <button onclick="moveText(-1, 0)">←</button>
+            <button onclick="moveText(1, 0)">→</button>
+            <input type="range" id="moveStep" min="1" max="50" value="5">
         </div>
     </div>
-
-    <script src="app.js"></script>
-</body>
-</html>
+</div>
