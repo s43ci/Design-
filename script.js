@@ -1,48 +1,42 @@
-// Add subtle shadow to navigation bar when scrolling
-window.addEventListener('scroll', () => {
-    const nav = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        nav.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
-    } else {
-        nav.style.boxShadow = 'none';
-    }
-});
-
-// Interactive Shopping Cart Logic
 document.addEventListener('DOMContentLoaded', () => {
-    let cartCount = 0;
-    const cartBadge = document.querySelector('.cart-badge');
-    const addToCartButtons = document.querySelectorAll('.add-to-cart');
-
-    addToCartButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            // Prevent link jumping if wrapped in anchor tags
-            e.preventDefault(); 
-            
-            // Increment cart value
-            cartCount++;
-            
-            // Update UI
-            cartBadge.textContent = cartCount;
-            
-            // Animate badge for visual feedback
-            cartBadge.style.transform = 'scale(1.3)';
-            setTimeout(() => {
-                cartBadge.style.transform = 'scale(1)';
-            }, 200);
-
-            // Change button state to indicate success
-            const originalText = this.textContent;
-            this.textContent = 'Added to Cart!';
-            this.style.backgroundColor = 'var(--primary-color)';
-            this.style.color = 'var(--white)';
-            
-            // Revert button back to normal after 1.5 seconds
-            setTimeout(() => {
-                this.textContent = originalText;
-                this.style.backgroundColor = 'transparent';
-                this.style.color = 'var(--primary-color)';
-            }, 1500);
-        });
+    
+    // 1. Navbar Scroll Effect
+    const navbar = document.getElementById('navbar');
+    
+    window.addEventListener('scroll', () => {
+        // Add subtle bottom border when scrolling down
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
     });
+
+    // 2. Scroll Fade-in Animation (Intersection Observer)
+    const faders = document.querySelectorAll('.fade-in');
+    
+    // Options for the observer: trigger when 15% of the element is visible
+    const appearOptions = {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                return; // Do nothing if not in view
+            } else {
+                // Add the 'appear' class to trigger CSS transition
+                entry.target.classList.add('appear');
+                // Stop observing once it has appeared
+                observer.unobserve(entry.target);
+            }
+        });
+    }, appearOptions);
+
+    // Attach observer to every element with the 'fade-in' class
+    faders.forEach(fader => {
+        appearOnScroll.observe(fader);
+    });
+
 });
