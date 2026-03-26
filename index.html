@@ -1,31 +1,195 @@
-<div class="bottom-controls">
-    <div class="tool-tabs">
-        <button onclick="showPanel('textPanel')">النص</button>
-        <button onclick="showPanel('colorPanel')">الألوان</button>
-        <button onclick="showPanel('sizePanel')">القياسات</button>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina | High-End E-Commerce</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    <div id="textPanel" class="control-panel active">
-        <div class="row">
-            <button onclick="addText()">+ إضافة نص جديد</button>
-            <input type="file" id="fontInput" accept=".ttf,.otf" style="display:none" onchange="loadCustomFont(this)">
-            <button onclick="document.getElementById('fontInput').click()">رفع خط خاص</button>
-        </div>
-        
-        <div class="alignment-row">
-            <button onclick="alignText('left')">يسار</button>
-            <button onclick="alignText('center')">وسط</button>
-            <button onclick="alignText('right')">يمين</button>
-            <button onclick="applyKashida()">كشيدة</button>
-        </div>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">Lumina.</a>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Search for products...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
 
-        <div class="nudge-controls">
-            <span>تحريك دقيق:</span>
-            <button onclick="moveText(0, -1)">↑</button>
-            <button onclick="moveText(0, 1)">↓</button>
-            <button onclick="moveText(-1, 0)">←</button>
-            <button onclick="moveText(1, 0)">→</button>
-            <input type="range" id="moveStep" min="1" max="50" value="5">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#products">Shop</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <div class="nav-icons">
+                <a href="#" class="cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-badge">0</span>
+                </a>
+            </div>
         </div>
-    </div>
-</div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1>Elevate Your Everyday Style.</h1>
+                <p>Discover our curated collection of premium accessories and essentials designed for the modern minimalist.</p>
+                <a href="#products" class="btn btn-primary">Shop Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="categories" class="categories section-padding">
+        <div class="container">
+            <h2 class="section-title">Shop by Category</h2>
+            <div class="grid categories-grid">
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80" alt="Watches">
+                    <div class="category-overlay">
+                        <h3>Timepieces</h3>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80" alt="Bags">
+                    <div class="category-overlay">
+                        <h3>Leather Goods</h3>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=600&q=80" alt="Sunglasses">
+                    <div class="category-overlay">
+                        <h3>Eyewear</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="products section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title">Trending Now</h2>
+            <div class="grid products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=500&q=80" alt="Classic Watch">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Timepieces</span>
+                        <h3 class="product-title">Minimalist Chronograph</h3>
+                        <div class="product-price">$249.00</div>
+                        <button class="btn btn-outline add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&w=500&q=80" alt="Leather Backpack">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Leather Goods</span>
+                        <h3 class="product-title">Urban Explorer Backpack</h3>
+                        <div class="product-price">$185.00</div>
+                        <button class="btn btn-outline add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=500&q=80" alt="Sunglasses">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Eyewear</span>
+                        <h3 class="product-title">Polarized Aviators</h3>
+                        <div class="product-price">$120.00</div>
+                        <button class="btn btn-outline add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1606522754091-a3baba7048f0?auto=format&fit=crop&w=500&q=80" alt="Wallet">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Accessories</span>
+                        <h3 class="product-title">Slim Bifold Wallet</h3>
+                        <div class="product-price">$65.00</div>
+                        <button class="btn btn-outline add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about section-padding">
+        <div class="container about-container">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80" alt="Store Interior">
+            </div>
+            <div class="about-content">
+                <h2>Design meets functionality.</h2>
+                <p>At Lumina, we believe that the objects you carry every day should be beautiful, durable, and highly functional. We source the finest materials globally to craft products that stand the test of time.</p>
+                <p>Every stitch, every curve, and every mechanism is designed with an obsessive attention to detail.</p>
+                <a href="#contact" class="btn btn-primary">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea rows="5" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <h3>Lumina.</h3>
+                <p>Crafting excellence for the modern lifestyle.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Shop</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Customer Care</h4>
+                <ul>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>تم التطوير بواسطة واثِـق محمد</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
