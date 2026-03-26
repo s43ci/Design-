@@ -1,47 +1,49 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. Navbar Scroll Effect (Adds border on scroll)
+    // 1. تأثير شريط التنقل عند التمرير
     const navbar = document.getElementById('navbar');
-    
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 20) {
+        if (window.scrollY > 10) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
     });
 
-    // 2. Mobile Menu Logic (Hamburger Toggle)
+    // 2. منطق قائمة الهاتف (المحدثة)
     const menuToggle = document.getElementById('mobile-menu');
-    const navLinks = document.querySelector('.nav-links');
+    const navOverlay = document.getElementById('nav-overlay');
+    const navLinks = document.querySelectorAll('.nav-links a');
     const body = document.body;
 
-    // Function to toggle menu open/closed
     const toggleMenu = () => {
         menuToggle.classList.toggle('active');
-        navLinks.classList.toggle('active');
-        // Prevent body scrolling when menu is open
-        body.style.overflow = body.style.overflow === 'hidden' ? '' : 'hidden';
+        navOverlay.classList.toggle('active');
+        
+        // منع التمرير في الخلفية عند فتح القائمة
+        if (navOverlay.classList.contains('active')) {
+            body.style.overflow = 'hidden';
+        } else {
+            body.style.overflow = '';
+        }
     };
 
     menuToggle.addEventListener('click', toggleMenu);
 
-    // Close menu when a link is clicked
-    const navItems = document.querySelectorAll('.nav-links a');
-    navItems.forEach(item => {
-        item.addEventListener('click', () => {
-            if (navLinks.classList.contains('active')) {
+    // إغلاق القائمة عند النقر على أي رابط
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (navOverlay.classList.contains('active')) {
                 toggleMenu();
             }
         });
     });
 
-    // 3. Scroll Fade-in Animation (Intersection Observer)
+    // 3. أنيميشن الظهور عند التمرير (Fade-in)
     const faders = document.querySelectorAll('.fade-in');
-    
     const appearOptions = {
-        threshold: 0.1, // Trigger earlier on mobile
-        rootMargin: "0px 0px -50px 0px"
+        threshold: 0.1,
+        rootMargin: "0px 0px -40px 0px"
     };
 
     const appearOnScroll = new IntersectionObserver(function(entries, observer) {
