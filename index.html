@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Wathiq Mohammed | Portfolio</title>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Wathiq Mohammed | Nurse & Digital Creator</title>
+    <meta name="description" content="Wathiq Mohammed — Nurse and Digital Creator. Blending healthcare precision with creative artistry.">
+    <meta name="theme-color" content="#0071e3">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -13,83 +15,106 @@
 </head>
 <body>
 
+    <!-- Animated Background Layer -->
+    <div class="bg-gradient-animated" aria-hidden="true"></div>
+    <div class="glow-orb glow-orb-1" aria-hidden="true"></div>
+    <div class="glow-orb glow-orb-2" aria-hidden="true"></div>
+    <div class="glow-orb glow-orb-3" aria-hidden="true"></div>
+    <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+    <!-- Cursor Glow -->
+    <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+
+    <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-content">
-            <a href="#hero" class="logo">WM.</a>
-            
-            <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-            
-            <div class="nav-overlay" id="nav-overlay">
-                <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#social">Connect</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+            <a href="#hero" class="logo" id="logo-link">WM.</a>
+
+            <div class="nav-right">
+                <div class="nav-overlay" id="nav-overlay">
+                    <ul class="nav-links">
+                        <li><a href="#about" id="nav-about">About</a></li>
+                        <li><a href="#social" id="nav-connect">Connect</a></li>
+                        <li><a href="#contact" id="nav-contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">
+                    <i class="fa-solid fa-moon icon-moon"></i>
+                    <i class="fa-solid fa-sun icon-sun"></i>
+                </button>
+
+                <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
             </div>
         </div>
     </nav>
 
-    <section id="hero" class="fade-in">
+    <!-- Hero Section -->
+    <section id="hero">
         <div class="hero-content text-center container">
             <h1 class="hero-title">Wathiq Mohammed</h1>
-            <p class="subtitle">Nurse | Digital Creator</p>
-            <a href="#social" class="btn-primary">Explore</a>
+            <p class="subtitle">Nurse · Digital Creator</p>
+            <a href="#social" class="btn-primary" id="hero-cta">Explore</a>
         </div>
     </section>
 
+    <!-- About Section -->
     <section id="about" class="section-alt fade-in">
-        <div class="container text-center small-container">
-            <h2 class="section-title">About Me</h2>
-            <p class="section-text">
-                Blending the precision of healthcare with the artistry of digital creation. Dedicated to continuous learning, elegant design, and impactful content.
-            </p>
+        <div class="container text-center">
+            <div class="glass-section">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-text">
+                    Blending the precision of healthcare with the artistry of digital creation. Dedicated to continuous learning, elegant design, and impactful content.
+                </p>
+            </div>
         </div>
     </section>
 
+    <!-- Social / Connect Section -->
     <section id="social" class="fade-in">
         <div class="container">
             <h2 class="section-title text-center">Connect</h2>
             <div class="grid-container">
-                
-                <a href="https://www.instagram.com/w_j56" target="_blank" rel="noopener noreferrer" class="social-card">
+
+                <a href="https://www.instagram.com/w_j56" target="_blank" rel="noopener noreferrer" class="social-card" id="card-instagram-personal">
                     <div class="icon-wrapper"><i class="fa-brands fa-instagram"></i></div>
                     <h3>Instagram</h3>
                     <p>Personal</p>
                     <span class="username">@w_j56</span>
                 </a>
 
-                <a href="https://t.me/s43ci" target="_blank" rel="noopener noreferrer" class="social-card">
+                <a href="https://t.me/s43ci" target="_blank" rel="noopener noreferrer" class="social-card" id="card-telegram">
                     <div class="icon-wrapper"><i class="fa-brands fa-telegram"></i></div>
                     <h3>Telegram</h3>
                     <p>Direct</p>
                     <span class="username">@s43ci</span>
                 </a>
 
-                <a href="https://t.me/s60254" target="_blank" rel="noopener noreferrer" class="social-card highlight-card">
+                <a href="https://t.me/s60254" target="_blank" rel="noopener noreferrer" class="social-card highlight-card" id="card-telegram-channel">
                     <div class="icon-wrapper"><i class="fa-solid fa-bullhorn"></i></div>
                     <h3>Telegram Channel</h3>
                     <p>Updates & Content</p>
                     <span class="username">@s60254</span>
                 </a>
 
-                <a href="https://www.instagram.com/707l14" target="_blank" rel="noopener noreferrer" class="social-card">
+                <a href="https://www.instagram.com/707l14" target="_blank" rel="noopener noreferrer" class="social-card" id="card-instagram-research">
                     <div class="icon-wrapper"><i class="fa-brands fa-instagram"></i></div>
                     <h3>Instagram</h3>
                     <p>Research</p>
                     <span class="username">@707l14</span>
                 </a>
 
-                <a href="https://www.tiktok.com/@s43ci" target="_blank" rel="noopener noreferrer" class="social-card">
+                <a href="https://www.tiktok.com/@s43ci" target="_blank" rel="noopener noreferrer" class="social-card" id="card-tiktok">
                     <div class="icon-wrapper"><i class="fa-brands fa-tiktok"></i></div>
                     <h3>TikTok</h3>
                     <p>Content</p>
                     <span class="username">@s43ci</span>
                 </a>
 
-                <a href="https://tellonym.me/s43ci" target="_blank" rel="noopener noreferrer" class="social-card">
+                <a href="https://tellonym.me/s43ci" target="_blank" rel="noopener noreferrer" class="social-card" id="card-tellonym">
                     <div class="icon-wrapper"><i class="fa-solid fa-comment-dots"></i></div>
                     <h3>Tellonym</h3>
                     <p>Anonymous</p>
@@ -100,14 +125,18 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
     <section id="contact" class="section-alt fade-in">
-        <div class="container text-center small-container">
-            <h2 class="section-title">Get in touch</h2>
-            <p class="section-text">Have a project in mind or want to collaborate? Let's create something beautiful together.</p>
-            <a href="mailto:your.email@example.com" class="btn-secondary">Send a Message</a>
+        <div class="container text-center">
+            <div class="glass-section">
+                <h2 class="section-title">Get in touch</h2>
+                <p class="section-text">Have a project in mind or want to collaborate? Let's create something beautiful together.</p>
+                <a href="mailto:your.email@example.com" class="btn-secondary" id="contact-cta">Send a Message</a>
+            </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <div class="container text-center">
             <p>Developed by Wathiq Mohammed</p>
